@@ -102,6 +102,12 @@ class users_controller extends base_controller {
 
     public function p_login() {
 
+        # Check for blank fields:
+        foreach($_POST as $key => $value) {
+           if (empty($value)) {
+               Router::redirect("/users/login/error/blank");
+           }
+        }
        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
           Router::redirect("/users/login/error/bademail");
 
