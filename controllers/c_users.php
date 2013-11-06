@@ -51,7 +51,7 @@ class users_controller extends base_controller {
            WHERE email = '".$_POST['email']."'"; 
 
         $email = DB::instance(DB_NAME)->select_field($q);
-        echo "email ". $email;
+        
         if($email ) {
            Router::redirect("/users/signup/error/error");
         }
@@ -74,7 +74,6 @@ class users_controller extends base_controller {
         $last_name = $_POST['last_name']; 
         $from = Array("name" => APP_NAME, "email" => APP_EMAIL);
         $email = $_POST['email'];
-        $email = SMTP_USERNAME;
         $subject = "Welcome to ".APP_NAME."!";
         $body = "Thanks for signing up, $first_name! Your registration is confirmed. \n";
 
