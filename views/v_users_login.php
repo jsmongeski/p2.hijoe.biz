@@ -16,6 +16,9 @@
     <?php if(isset($error)): ?>
         <div class='error'>
 
+        <?php if(!strcmp($error, "blank")) : ?>
+            Login failed, empty field submitted. 
+        <?php endif; ?>
         <?php if(!strcmp($error, "bademail")) : ?>
             Login failed, invalid email address. 
         <?php endif; ?>
